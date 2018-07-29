@@ -1,0 +1,14 @@
+version: '3'
+services:
+  MYSQL:
+    image: mysql:8.0.11
+    hostname: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/mysqk:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=testbase
+      - MYSQL_USER=usr
+      - MYSQL_PASSWORD=pwd
+      - MYSQL_ROOT_PASSWORD=root
