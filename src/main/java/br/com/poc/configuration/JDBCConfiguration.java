@@ -21,9 +21,9 @@ public class JDBCConfiguration {
         config.setPassword(configuration.getPassword());
         config.setMaximumPoolSize(configuration.getMaxSize());
         config.setMinimumIdle(configuration.getMinSize());
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("cachePrepStmts", configuration.getEnablePreparedStatementCache());
+        config.addDataSourceProperty("prepStmtCacheSize", configuration.getPreparedStatementCacheSize());
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", configuration.getPreparedStatementCacheSqlLimit());
 
         return new HikariDataSource(config);
     }
