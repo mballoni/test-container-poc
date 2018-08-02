@@ -33,13 +33,17 @@ public class App implements Runnable {
 
         JDBCConfiguration jdbcConfiguration = new JDBCConfiguration(configuration);
 
+        park();
+
+        LOGGER.info("Shutting down application!");
+    }
+
+    private void park() {
         try {
             latch.await();
         } catch (InterruptedException e) {
             LOGGER.error("Latch error", e);
         }
-
-        LOGGER.info("Shutting down application!");
     }
 
     void stop() {
