@@ -37,7 +37,8 @@ public class MySQLTaskRepositoryTest {
     @BeforeEach
     void setUp() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(mysql.getJdbcUrl());
+        config.setJdbcUrl(mysql.getJdbcUrl() + "?TC_INITSCRIPT=schema.sql");
+//        config.setJdbcUrl("jdbc:tc:mysql:8.0.11://hostname/databasename?TC_INITSCRIPT=schema.sql");
         config.setUsername(mysql.getUsername());
         config.setPassword(mysql.getPassword());
         dataSource = new HikariDataSource(config);
